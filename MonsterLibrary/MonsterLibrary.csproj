@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ghoul.cs" />
     <Compile Include="Grimlock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shadow.cs" />
+    <Compile Include="TheBoneless.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DungeonLibrary\DungeonLibrary.csproj">

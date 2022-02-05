@@ -42,7 +42,7 @@ namespace DungeonLibrary
             MinDamage = minDamage;
             Description = description;
         }
-
+        public Monster() { }
 
         public override string ToString()
         {
@@ -65,6 +65,7 @@ namespace DungeonLibrary
                 Block,
                 Description);
         }
+        
 
         public override int CalcDamage()
         {
