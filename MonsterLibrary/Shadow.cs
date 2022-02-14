@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DungeonLibrary;
 namespace MonsterLibrary
 {
-    class Shadow : Monster
+    public class Shadow : Monster
     {
         public Shadow(string name, int life, int maxLife, int hitChance, double critChance, int block, int minDamage, int maxDamage, string description)
            : base(name, life, maxLife, hitChance, block, minDamage, maxDamage, critChance, description) { }
