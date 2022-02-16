@@ -14,7 +14,7 @@ namespace DungeonLibrary
             int diceRoll = rand.Next(1, 101);
             System.Threading.Thread.Sleep(40);
 
-            if (diceRoll <= (attacker.CalcHitChance() - defender.CalcHitChance()))
+            if (diceRoll <= (attacker.CalcHitChance() - defender.CalcBlock()))
             {
                 int dealDamage = attacker.CalcDamage();
 

@@ -7,12 +7,12 @@ using DungeonLibrary;
 
 namespace MonsterLibrary
 {
-    public class TheBoneless : Monster
+    public class Boneless : Monster
     {
-        public TheBoneless(string name, int life, int maxLife, int hitChance, double critChance, int block, int minDamage, int maxDamage, string description)
-           : base(name, life, maxLife, hitChance, block, minDamage, maxDamage, critChance, description) { }
+        public Boneless(string name, int life, int maxLife, int hitChance, double critChance, int block, int minDamage, int maxDamage, string description)
+           :base(name, life, maxLife, hitChance, block, minDamage, maxDamage, critChance, description) { }
 
-        public TheBoneless()
+        public Boneless()
         {
             MaxLife = 8;
             MaxDamage = 8;

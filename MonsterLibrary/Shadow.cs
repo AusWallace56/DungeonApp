@@ -9,7 +9,7 @@ namespace MonsterLibrary
     public class Shadow : Monster
     {
         public Shadow(string name, int life, int maxLife, int hitChance, double critChance, int block, int minDamage, int maxDamage, string description)
-           : base(name, life, maxLife, hitChance, block, minDamage, maxDamage, critChance, description) { }
+           :base(name, life, maxLife, hitChance, block, minDamage, maxDamage, critChance, description) { }
 
         public Shadow()
         {

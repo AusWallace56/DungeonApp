@@ -45,7 +45,7 @@
     <Compile Include="Grimlock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shadow.cs" />
-    <Compile Include="TheBoneless.cs" />
+    <Compile Include="Boneless.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DungeonLibrary\DungeonLibrary.csproj">
