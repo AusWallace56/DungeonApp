@@ -32,38 +32,26 @@ namespace DungeonLibrary
 
             switch (PlayerRace)
             {
-                case Race.Goliath:
-                    description = " ";
-                    break;
-                case Race.Harengon:
-                    description = " ";
+                case Race.HalfGiant:
+                    description = "Half Giant";
                     break;
                 case Race.Leonin:
-                    description = " ";
+                    description = "Leonin";
                     break;
                 case Race.Satyr:
-                    description = " ";
+                    description = "Satyr";
                     break;
                 case Race.Tiefling:
-                    description = " ";
-                    break;
-                case Race.Tortle:
-                    description = " ";
+                    description = "Tiefling";
                     break;
                 case Race.Human:
-                    description = " ";
-                    break;
-                case Race.Gnome:
-                    description = " ";
+                    description = "Human";
                     break;
                 case Race.Elf:
-                    description = " ";
-                    break;
-                case Race.Hafling:
-                    description = " ";
+                    description = "Elf";
                     break;
                 case Race.Dwarf:
-                    description = " ";
+                    description = "Dwarf";
                     break;
                 default:
                     break;

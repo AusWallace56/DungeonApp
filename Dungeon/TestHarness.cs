@@ -17,64 +17,554 @@ namespace Dungeon
             string playerName = Console.ReadLine();
             int score = 0;
             Weapon Fists = new Weapon(1, 2, "Fists", 0, true);
-            Player player = new Player(playerName, 55, 30, 50, 50, Race.Elf, Fists);
+            Player player = new Player(playerName, 0, 0, 50, 50, Race.Elf, Fists);
 
-            bool weaponChoice = false;
+            bool raceChoice = false;
             do
             {
-                Console.WriteLine("Choose your weapon.\n\n" +
-                    "L) Light Hammer\n" +
-                    "Min Damage: 1\n" +
-                    "Max Damage: 4\n" +
-                    "Crit Chance: 5%\n" +
-                    "Light one handed weapon. Increases Hit Chance, Increases Block, Low Damage.\n\n" +
-                    "M) Mace\n" +
-                    "Min Damage: 1\n" +
-                    "Max Damage: 6\n" +
-                    "Crit Chance: 5%" +
-                    "Average one handed weapon. A standard choice. No effect on stats.\n\n" +
-                    "B) Battle Axe\n" +
-                    "Min Damage: 2\n" +
-                    "Max Damage: 8\n" +
-                    "Crit Chance: 7%\n" +
-                    "Two handed weapon. Slight decrease to Block, but rewards with heavier damage.\n\n" +
-                    "G) Glaive\n" +
-                    "Min Damage: 2\n" +
-                    "Max Damage: 10\n" +
-                    "Crit Chance: 10%\n" +
-                    "Heavy two handed weapon. Decrease to Block, decrease to Hit Chance, but offers killer blows.");
-
-                ConsoleKey selectedWeapon = Console.ReadKey(true).Key;
-                Console.Clear();
-                switch (selectedWeapon)
+                Console.WriteLine("Choose your race.\n\n" +
+                    "G) Half Giant\n" +
+                    "L) Leonin\n" +
+                    "S) Satyr\n" +
+                    "T) Tiefling\n" +
+                    "H) Human\n" +
+                    "E) Elf\n" +
+                    "D) Dwarf\n");
+                ConsoleKey selectedRace = Console.ReadKey(true).Key;
+                switch (selectedRace)
                 {
-                    case ConsoleKey.L:
-                        Weapon lightHammer = new Weapon(1, 4, "Light Hammer", 5, false);
-                        player = new Player(playerName, 55, 30, 50, 50, Race.Elf, lightHammer);
-                        weaponChoice = true;
-                        break;
-                    case ConsoleKey.M:
-                        Weapon Mace = new Weapon(1, 6, "Mace", 5, false);
-                        player = new Player(playerName, 55, 30, 50, 50, Race.Elf, Mace);
-                        weaponChoice = true;
-                        break;
-                    case ConsoleKey.B:
-                        Weapon battleAxe = new Weapon(2, 8, "Battle Axe", 7, true);
-                        player = new Player(playerName, 55, 30, 50, 50, Race.Elf, battleAxe);
-                        weaponChoice = true;
-                        break;
                     case ConsoleKey.G:
-                        Weapon Glaive = new Weapon(2, 10, "Glaive", 10, true);
-                        player = new Player(playerName, 55, 30, 50, 50, Race.Elf, Glaive);
-                        weaponChoice = true;
+                        player = new Player(playerName, 0, 0, 50, 50, Race.HalfGiant, Fists);
+                        Console.WriteLine($"{playerName} the Half Giant!\nPress any key to proceed to weapon selection.");
+                        Console.ReadKey();
+                        Console.Clear();
+                        raceChoice = true;
+                        bool weaponChoice = false;
+                        do
+                        {
+                            Console.WriteLine("Choose your weapon.\n\n" +
+                                "L) Light Hammer\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 4\n" +
+                                "Crit Chance: 5%\n" +
+                                "Light one handed weapon. Increases Hit Chance, Increases Block, Low Damage.\n\n" +
+                                "M) Mace\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 6\n" +
+                                "Crit Chance: 5%" +
+                                "Average one handed weapon. A standard choice. No effect on stats.\n\n" +
+                                "B) Battle Axe\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 8\n" +
+                                "Crit Chance: 7%\n" +
+                                "Two handed weapon. Decrease to Block, but rewards with heavier damage.\n\n" +
+                                "G) Glaive\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 10\n" +
+                                "Crit Chance: 10%\n" +
+                                "Heavy two handed weapon. Decrease to Block, decrease to Hit Chance, but offers killer blows.");
+
+                            ConsoleKey selectedWeapon = Console.ReadKey(true).Key;
+                            Console.Clear();
+                            switch (selectedWeapon)
+                            {
+
+                                case ConsoleKey.L:
+                                    Weapon lightHammer = new Weapon(1, 4, "Light Hammer", 5, false);
+                                    player = new Player(playerName, 48, 23, 50, 50, Race.HalfGiant, lightHammer);
+                                    Console.WriteLine("You have selected the Light Hammer.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.M:
+                                    Weapon Mace = new Weapon(1, 6, "Mace", 5, false);
+                                    player = new Player(playerName, 45, 20, 50, 50, Race.HalfGiant, Mace);
+                                    Console.WriteLine("You have selected the Mace.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.B:
+                                    Weapon battleAxe = new Weapon(2, 8, "Battle Axe", 7, true);
+                                    player = new Player(playerName, 45, 18, 50, 50, Race.HalfGiant, battleAxe);
+                                    Console.WriteLine("You have selected the Battle Axe.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.G:
+                                    Weapon Glaive = new Weapon(2, 10, "Glaive", 10, true);
+                                    player = new Player(playerName, 38, 17, 50, 50, Race.HalfGiant, Glaive);
+                                    Console.WriteLine("You have selected the Glaive.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    break;
+                            }
+
+
+                        } while (!weaponChoice && !raceChoice);
+                        break;
+                    case ConsoleKey.L:
+                        player = new Player(playerName, 0, 0, 50, 50, Race.Leonin, Fists);
+                        Console.WriteLine($"{playerName} the Leonin!\nPress any key to proceed to weapon selection.");
+                        Console.ReadKey();
+                        Console.Clear();
+                        raceChoice = true;
+                        bool weaponChoice2 = false;
+                        do
+                        {
+                            Console.WriteLine("Choose your weapon.\n\n" +
+                                "L) Light Hammer\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 4\n" +
+                                "Crit Chance: 5%\n" +
+                                "Light one handed weapon. Increases Hit Chance, Increases Block, Low Damage.\n\n" +
+                                "M) Mace\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 6\n" +
+                                "Crit Chance: 5%" +
+                                "Average one handed weapon. A standard choice. No effect on stats.\n\n" +
+                                "B) Battle Axe\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 8\n" +
+                                "Crit Chance: 7%\n" +
+                                "Two handed weapon. Decrease to Block, but rewards with heavier damage.\n\n" +
+                                "G) Glaive\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 10\n" +
+                                "Crit Chance: 10%\n" +
+                                "Heavy two handed weapon. Decrease to Block, decrease to Hit Chance, but offers killer blows.");
+
+                            ConsoleKey selectedWeapon = Console.ReadKey(true).Key;
+                            Console.Clear();
+                            switch (selectedWeapon)
+                            {
+
+                                case ConsoleKey.L:
+                                    Weapon lightHammer = new Weapon(1, 4, "Light Hammer", 5, false);
+                                    player = new Player(playerName, 48, 23, 50, 50, Race.Leonin, lightHammer);
+                                    Console.WriteLine("You have selected the Light Hammer.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.M:
+                                    Weapon Mace = new Weapon(1, 6, "Mace", 5, false);
+                                    player = new Player(playerName, 45, 20, 50, 50, Race.Leonin, Mace);
+                                    Console.WriteLine("You have selected the Mace.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.B:
+                                    Weapon battleAxe = new Weapon(2, 8, "Battle Axe", 7, true);
+                                    player = new Player(playerName, 45, 18, 50, 50, Race.Leonin, battleAxe);
+                                    Console.WriteLine("You have selected the Battle Axe.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.G:
+                                    Weapon Glaive = new Weapon(2, 10, "Glaive", 10, true);
+                                    player = new Player(playerName, 38, 17, 50, 50, Race.Leonin, Glaive);
+                                    Console.WriteLine("You have selected the Glaive.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    break;
+                            }
+
+
+                        } while (!weaponChoice2 && !raceChoice);
+                        break;
+                    case ConsoleKey.S:
+                        player = new Player(playerName, 0, 0, 50, 50, Race.Satyr, Fists);
+                        Console.WriteLine($"{playerName} the Satyr!\nPress any key to proceed to weapon selection.");
+                        Console.ReadKey();
+                        Console.Clear();
+                        raceChoice = true;
+                        bool weaponChoice3 = false;
+                        do
+                        {
+                            Console.WriteLine("Choose your weapon.\n\n" +
+                                "L) Light Hammer\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 4\n" +
+                                "Crit Chance: 5%\n" +
+                                "Light one handed weapon. Increases Hit Chance, Increases Block, Low Damage.\n\n" +
+                                "M) Mace\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 6\n" +
+                                "Crit Chance: 5%" +
+                                "Average one handed weapon. A standard choice. No effect on stats.\n\n" +
+                                "B) Battle Axe\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 8\n" +
+                                "Crit Chance: 7%\n" +
+                                "Two handed weapon. Decrease to Block, but rewards with heavier damage.\n\n" +
+                                "G) Glaive\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 10\n" +
+                                "Crit Chance: 10%\n" +
+                                "Heavy two handed weapon. Decrease to Block, decrease to Hit Chance, but offers killer blows.");
+
+                            ConsoleKey selectedWeapon = Console.ReadKey(true).Key;
+                            Console.Clear();
+                            switch (selectedWeapon)
+                            {
+
+                                case ConsoleKey.L:
+                                    Weapon lightHammer = new Weapon(1, 4, "Light Hammer", 5, false);
+                                    player = new Player(playerName, 48, 23, 50, 50, Race.Satyr, lightHammer);
+                                    Console.WriteLine("You have selected the Light Hammer.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.M:
+                                    Weapon Mace = new Weapon(1, 6, "Mace", 5, false);
+                                    player = new Player(playerName, 45, 20, 50, 50, Race.Satyr, Mace);
+                                    Console.WriteLine("You have selected the Mace.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.B:
+                                    Weapon battleAxe = new Weapon(2, 8, "Battle Axe", 7, true);
+                                    player = new Player(playerName, 45, 18, 50, 50, Race.Satyr, battleAxe);
+                                    Console.WriteLine("You have selected the Battle Axe.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.G:
+                                    Weapon Glaive = new Weapon(2, 10, "Glaive", 10, true);
+                                    player = new Player(playerName, 38, 17, 50, 50, Race.Satyr, Glaive);
+                                    Console.WriteLine("You have selected the Glaive.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    break;
+                            }
+
+
+                        } while (!weaponChoice3 && !raceChoice);
+                        break;
+                    case ConsoleKey.T:
+                        player = new Player(playerName, 0, 0, 50, 50, Race.Tiefling, Fists);
+                        Console.WriteLine($"{playerName} the Tiefling!\nPress any key to proceed to weapon selection.");
+                        Console.ReadKey();
+                        Console.Clear();
+                        raceChoice = true;
+                        bool weaponChoice4 = false;
+                        do
+                        {
+                            Console.WriteLine("Choose your weapon.\n\n" +
+                                "L) Light Hammer\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 4\n" +
+                                "Crit Chance: 5%\n" +
+                                "Light one handed weapon. Increases Hit Chance, Increases Block, Low Damage.\n\n" +
+                                "M) Mace\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 6\n" +
+                                "Crit Chance: 5%" +
+                                "Average one handed weapon. A standard choice. No effect on stats.\n\n" +
+                                "B) Battle Axe\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 8\n" +
+                                "Crit Chance: 7%\n" +
+                                "Two handed weapon. Decrease to Block, but rewards with heavier damage.\n\n" +
+                                "G) Glaive\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 10\n" +
+                                "Crit Chance: 10%\n" +
+                                "Heavy two handed weapon. Decrease to Block, decrease to Hit Chance, but offers killer blows.");
+
+                            ConsoleKey selectedWeapon = Console.ReadKey(true).Key;
+                            Console.Clear();
+                            switch (selectedWeapon)
+                            {
+
+                                case ConsoleKey.L:
+                                    Weapon lightHammer = new Weapon(1, 4, "Light Hammer", 5, false);
+                                    player = new Player(playerName, 48, 23, 50, 50, Race.Tiefling, lightHammer);
+                                    Console.WriteLine("You have selected the Light Hammer.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.M:
+                                    Weapon Mace = new Weapon(1, 6, "Mace", 5, false);
+                                    player = new Player(playerName, 45, 20, 50, 50, Race.Tiefling, Mace);
+                                    Console.WriteLine("You have selected the Mace.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.B:
+                                    Weapon battleAxe = new Weapon(2, 8, "Battle Axe", 7, true);
+                                    player = new Player(playerName, 45, 18, 50, 50, Race.Tiefling, battleAxe);
+                                    Console.WriteLine("You have selected the Battle Axe.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.G:
+                                    Weapon Glaive = new Weapon(2, 10, "Glaive", 10, true);
+                                    player = new Player(playerName, 38, 17, 50, 50, Race.Tiefling, Glaive);
+                                    Console.WriteLine("You have selected the Glaive.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    break;
+                            }
+
+
+                        } while (!weaponChoice4 && !raceChoice);
+                        break;
+                    case ConsoleKey.H:
+                        player = new Player(playerName, 0, 0, 50, 50, Race.Human, Fists);
+                        Console.WriteLine($"{playerName} the Human!\nPress any key to proceed to weapon selection.");
+                        Console.ReadKey();
+                        Console.Clear();
+                        raceChoice = true;
+                        bool weaponChoice5 = false;
+                        do
+                        {
+                            Console.WriteLine("Choose your weapon.\n\n" +
+                                "L) Light Hammer\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 4\n" +
+                                "Crit Chance: 5%\n" +
+                                "Light one handed weapon. Increases Hit Chance, Increases Block, Low Damage.\n\n" +
+                                "M) Mace\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 6\n" +
+                                "Crit Chance: 5%" +
+                                "Average one handed weapon. A standard choice. No effect on stats.\n\n" +
+                                "B) Battle Axe\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 8\n" +
+                                "Crit Chance: 7%\n" +
+                                "Two handed weapon. Decrease to Block, but rewards with heavier damage.\n\n" +
+                                "G) Glaive\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 10\n" +
+                                "Crit Chance: 10%\n" +
+                                "Heavy two handed weapon. Decrease to Block, decrease to Hit Chance, but offers killer blows.");
+
+                            ConsoleKey selectedWeapon = Console.ReadKey(true).Key;
+                            Console.Clear();
+                            switch (selectedWeapon)
+                            {
+
+                                case ConsoleKey.L:
+                                    Weapon lightHammer = new Weapon(1, 4, "Light Hammer", 5, false);
+                                    player = new Player(playerName, 48, 23, 50, 50, Race.Human, lightHammer);
+                                    Console.WriteLine("You have selected the Light Hammer.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.M:
+                                    Weapon Mace = new Weapon(1, 6, "Mace", 5, false);
+                                    player = new Player(playerName, 45, 20, 50, 50, Race.Human, Mace);
+                                    Console.WriteLine("You have selected the Mace.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.B:
+                                    Weapon battleAxe = new Weapon(2, 8, "Battle Axe", 7, true);
+                                    player = new Player(playerName, 45, 18, 50, 50, Race.Human, battleAxe);
+                                    Console.WriteLine("You have selected the Battle Axe.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.G:
+                                    Weapon Glaive = new Weapon(2, 10, "Glaive", 10, true);
+                                    player = new Player(playerName, 38, 17, 50, 50, Race.Human, Glaive);
+                                    Console.WriteLine("You have selected the Glaive.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    break;
+                            }
+                        } while (!weaponChoice5 && !raceChoice);
+                        break;
+                    case ConsoleKey.E:
+                        player = new Player(playerName, 0, 0, 50, 50, Race.Elf, Fists);
+                        Console.WriteLine($"{playerName} the Elf!\nPress any key to proceed to weapon selection.");
+                        Console.ReadKey();
+                        Console.Clear();
+                        raceChoice = true;
+                        bool weaponChoice6 = false;
+                        do
+                        {
+                            Console.WriteLine("Choose your weapon.\n\n" +
+                                "L) Light Hammer\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 4\n" +
+                                "Crit Chance: 5%\n" +
+                                "Light one handed weapon. Increases Hit Chance, Increases Block, Low Damage.\n\n" +
+                                "M) Mace\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 6\n" +
+                                "Crit Chance: 5%" +
+                                "Average one handed weapon. A standard choice. No effect on stats.\n\n" +
+                                "B) Battle Axe\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 8\n" +
+                                "Crit Chance: 7%\n" +
+                                "Two handed weapon. Decrease to Block, but rewards with heavier damage.\n\n" +
+                                "G) Glaive\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 10\n" +
+                                "Crit Chance: 10%\n" +
+                                "Heavy two handed weapon. Decrease to Block, decrease to Hit Chance, but offers killer blows.");
+
+                            ConsoleKey selectedWeapon = Console.ReadKey(true).Key;
+                            Console.Clear();
+                            switch (selectedWeapon)
+                            {
+
+                                case ConsoleKey.L:
+                                    Weapon lightHammer = new Weapon(1, 4, "Light Hammer", 5, false);
+                                    player = new Player(playerName, 48, 23, 50, 50, Race.Elf, lightHammer);
+                                    Console.WriteLine("You have selected the Light Hammer.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.M:
+                                    Weapon Mace = new Weapon(1, 6, "Mace", 5, false);
+                                    player = new Player(playerName, 45, 20, 50, 50, Race.Elf, Mace);
+                                    Console.WriteLine("You have selected the Mace.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.B:
+                                    Weapon battleAxe = new Weapon(2, 8, "Battle Axe", 7, true);
+                                    player = new Player(playerName, 45, 18, 50, 50, Race.Elf, battleAxe);
+                                    Console.WriteLine("You have selected the Battle Axe.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.G:
+                                    Weapon Glaive = new Weapon(2, 10, "Glaive", 10, true);
+                                    player = new Player(playerName, 38, 17, 50, 50, Race.Elf, Glaive);
+                                    Console.WriteLine("You have selected the Glaive.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    break;
+                            }
+                        } while (!weaponChoice6 && !raceChoice);
+                        break;
+                    case ConsoleKey.D:
+                        player = new Player(playerName, 0, 0, 50, 50, Race.Dwarf, Fists);
+                        Console.WriteLine($"{playerName} the Dwarf!\nPress any key to proceed to weapon selection.");
+                        Console.ReadKey();
+                        Console.Clear();
+                        raceChoice = true;
+                        bool weaponChoice7 = false;
+                        do
+                        {
+                            Console.WriteLine("Choose your weapon.\n\n" +
+                                "L) Light Hammer\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 4\n" +
+                                "Crit Chance: 5%\n" +
+                                "Light one handed weapon. Increases Hit Chance, Increases Block, Low Damage.\n\n" +
+                                "M) Mace\n" +
+                                "Min Damage: 1\n" +
+                                "Max Damage: 6\n" +
+                                "Crit Chance: 5%" +
+                                "Average one handed weapon. A standard choice. No effect on stats.\n\n" +
+                                "B) Battle Axe\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 8\n" +
+                                "Crit Chance: 7%\n" +
+                                "Two handed weapon. Decrease to Block, but rewards with heavier damage.\n\n" +
+                                "G) Glaive\n" +
+                                "Min Damage: 2\n" +
+                                "Max Damage: 10\n" +
+                                "Crit Chance: 10%\n" +
+                                "Heavy two handed weapon. Decrease to Block, decrease to Hit Chance, but offers killer blows.");
+
+                            ConsoleKey selectedWeapon = Console.ReadKey(true).Key;
+                            Console.Clear();
+                            switch (selectedWeapon)
+                            {
+
+                                case ConsoleKey.L:
+                                    Weapon lightHammer = new Weapon(1, 4, "Light Hammer", 5, false);
+                                    player = new Player(playerName, 48, 23, 50, 50, Race.Dwarf, lightHammer);
+                                    Console.WriteLine("You have selected the Light Hammer.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.M:
+                                    Weapon Mace = new Weapon(1, 6, "Mace", 5, false);
+                                    player = new Player(playerName, 45, 20, 50, 50, Race.Dwarf, Mace);
+                                    Console.WriteLine("You have selected the Mace.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.B:
+                                    Weapon battleAxe = new Weapon(2, 8, "Battle Axe", 7, true);
+                                    player = new Player(playerName, 45, 18, 50, 50, Race.Dwarf, battleAxe);
+                                    Console.WriteLine("You have selected the Battle Axe.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                case ConsoleKey.G:
+                                    Weapon Glaive = new Weapon(2, 10, "Glaive", 10, true);
+                                    player = new Player(playerName, 38, 17, 50, 50, Race.Dwarf, Glaive);
+                                    Console.WriteLine("You have selected the Glaive.\nPress any key to start your journey.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    weaponChoice = true;
+                                    break;
+                                default:
+                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    break;
+                            }
+                        } while (!weaponChoice7 && !raceChoice);
                         break;
                     default:
-                        Console.WriteLine("Wrong input selected. Try another key.");
                         break;
                 }
+            } while (!raceChoice);
 
-
-            } while (!weaponChoice);
+           
 
             bool exit = false;
 
@@ -169,7 +659,7 @@ namespace Dungeon
             } while (!exit);
             Console.WriteLine("You defeated " + score + " monster" + ((score == 1) ? "." : "s."));
         }
-
+    
         private static string GetRoom()
         {
             string[] rooms = {

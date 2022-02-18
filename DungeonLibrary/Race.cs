@@ -8,16 +8,12 @@ namespace DungeonLibrary
 {
     public enum Race
     {
-        Goliath,
-        Harengon,
+        HalfGiant,
         Leonin,
         Satyr,
         Tiefling,
-        Tortle,
         Human,
-        Gnome,
         Elf, 
-        Hafling,
         Dwarf,
     }
 }
