@@ -16,6 +16,10 @@ namespace Dungeon
             Console.Write("Enter your player name: ");
             string playerName = Console.ReadLine();
             int score = 0;
+            int hPotion = 0;
+            int gold = 0;
+            int silver = 0;
+            int copper = 7;
             Weapon Fists = new Weapon(1, 2, "Fists", 0, true);
             Player player = new Player(playerName, 0, 0, 50, 50, Race.Elf, Fists);
 
@@ -600,6 +604,9 @@ namespace Dungeon
                         "F) Flee\n" +
                         "P) Player Info\n" +
                         "M) Monster Info\n" +
+                        "L) Loot Room\n" +
+                        "I) Inventory\n" +
+                        "H) Consume Health Potion\n" +
                         "E) Exit\n");
 
                     ConsoleKey userChoice = Console.ReadKey(true).Key;
@@ -613,6 +620,7 @@ namespace Dungeon
 
                             if (monster.Life <=0)
                             {
+                                
                                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.WriteLine("\n You have slain {0}!\n", monster.Name);
                                 Console.ResetColor();
@@ -631,15 +639,91 @@ namespace Dungeon
                             Console.WriteLine("Player Information");
                             Console.WriteLine(player);
                             Console.WriteLine($"Monsters Defeated: {score}");
+                            reload = true;
                             break;
                         case ConsoleKey.M:
                             Console.WriteLine("Monster Information");
                             Console.WriteLine(monster);
+                            reload = true;
                             break;
                         case ConsoleKey.E:
                         case ConsoleKey.X:
                             Console.WriteLine("Running away from your fears... cowardly");
                             exit = true;
+                            break;
+                        case ConsoleKey.L:
+                            Random randHealth = new Random();
+                            int healthRoll = randHealth.Next(1, 101);
+
+                            Random coinRoll = new Random();
+                            int coinAdded = coinRoll.Next(1, 37);
+
+                            Random randCopper = new Random();
+                            int copperRoll = randCopper.Next(1, 101);
+
+                            Random randSilver = new Random();
+                            int silverRoll = randSilver.Next(1, 101);
+
+                            Random randGold = new Random();
+                            int goldRoll = randGold.Next(1, 101);
+                            if (healthRoll <= 20)
+                            {
+                                hPotion++;
+                                Console.WriteLine("You found a health potion. Lucky you!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("No health potions were found.");
+                            }
+                             if (goldRoll <= 30)
+                            {
+                                Console.WriteLine($"You found {coinAdded} Gold.");
+                                gold += coinAdded;
+                            }
+                            else
+                            {
+                                Console.WriteLine("No gold was found.");
+                            }
+                            if (silverRoll <= 40)
+                            {
+                                Console.WriteLine($"You found {coinAdded} Silver.");
+                                silver += coinAdded;
+                            }
+                            else
+                            {
+                                Console.WriteLine("No silver was found.");
+                            }
+                            if (copperRoll <= 65)
+                            {
+                                Console.WriteLine($"You found {coinAdded} Copper.");
+                                copper += coinAdded;
+                            }
+                            else
+                            {
+                                Console.WriteLine("No Copper was found.");
+                            }
+                            reload = true;
+                            break;
+                        case ConsoleKey.I:
+                            Console.WriteLine($"Gold: {gold}");
+                            Console.WriteLine($"Silver: {silver}");
+                            Console.WriteLine($"Copper: {copper}");
+                            Console.WriteLine($"Health Potions: {hPotion}");
+                            reload = true;
+                            break;
+                        case ConsoleKey.H:
+                            Random healing = new Random();
+                            int heal = healing.Next(8, 16);
+                            if (hPotion >= 1 )
+                            {
+                                Console.WriteLine($"You have consumed a health potion and healed for {heal} points.");
+                                player.Life += heal;
+                                hPotion--;
+                            }
+                            else
+                            {
+                                Console.WriteLine("You must find health potions before you can consume them.");
+                            }
                             break;
                         default:
                             Console.WriteLine("Wrong input selected. Try another key.");

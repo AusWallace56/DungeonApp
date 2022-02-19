@@ -19,7 +19,7 @@ namespace MonsterLibrary
             Life = 14;
             HitChance = 45;
             CritChance = 10;
-            Block = 55;
+            Block = 25;
             MinDamage = 1;
             Description = "Never to be seen the Shadow tricks the eyes of even the most percept. Don't turn your back to the light, you never know what could be lurking. ";
         }

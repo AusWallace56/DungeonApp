@@ -19,7 +19,7 @@ namespace MonsterLibrary
             Life = 18;
             HitChance = 25;
             CritChance = 4;
-            Block = 25;
+            Block = 15;
             MinDamage = 1;
             Description = "With high speeds, razor sharp teeth, and constantly on the hunt for flesh it's best to keep your distance from the Ghoul.";
         }

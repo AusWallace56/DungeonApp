@@ -16,11 +16,11 @@ namespace MonsterLibrary
         {
             MaxLife = 8;
             MaxDamage = 8;
-            Name = "The Boneless";
+            Name = "Boneless";
             Life = 8;
             HitChance = 50;
             CritChance = 5;
-            Block = 35;
+            Block = 18;
             MinDamage = 2;
             Description = "An undead sack of humanoid flesh clinging on to necromatic magic that holds it to this plane.";
         }
