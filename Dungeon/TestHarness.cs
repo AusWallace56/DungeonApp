@@ -37,6 +37,7 @@ namespace Dungeon
                 ConsoleKey selectedRace = Console.ReadKey(true).Key;
                 switch (selectedRace)
                 {
+                   
                     case ConsoleKey.G:
                         player = new Player(playerName, 0, 0, 50, 50, Race.HalfGiant, Fists);
                         Console.WriteLine($"{playerName} the Half Giant!\nPress any key to proceed to weapon selection.");
@@ -106,7 +107,7 @@ namespace Dungeon
                                     weaponChoice = true;
                                     break;
                                 default:
-                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    Console.WriteLine("You have entered the wrong key. You will be punished. Your weapon is your fists. Good luck.\n\n");
                                     break;
                             }
 
@@ -182,7 +183,7 @@ namespace Dungeon
                                     weaponChoice = true;
                                     break;
                                 default:
-                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    Console.WriteLine("You have entered the wrong key. You will be punished. Your weapon is your fists. Good luck.\n\n");
                                     break;
                             }
 
@@ -258,7 +259,7 @@ namespace Dungeon
                                     weaponChoice = true;
                                     break;
                                 default:
-                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    Console.WriteLine("You have entered the wrong key. You will be punished. Your weapon is your fists. Good luck.\n\n");
                                     break;
                             }
 
@@ -334,7 +335,7 @@ namespace Dungeon
                                     weaponChoice = true;
                                     break;
                                 default:
-                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    Console.WriteLine("You have entered the wrong key. You will be punished. Your weapon is your fists. Good luck.\n\n");
                                     break;
                             }
 
@@ -410,9 +411,10 @@ namespace Dungeon
                                     weaponChoice = true;
                                     break;
                                 default:
-                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    Console.WriteLine("You have entered the wrong key. You will be punished. Your weapon is your fists. Good luck.\n\n");
                                     break;
                             }
+                            
                         } while (!weaponChoice5 && !raceChoice);
                         break;
                     case ConsoleKey.E:
@@ -484,7 +486,7 @@ namespace Dungeon
                                     weaponChoice = true;
                                     break;
                                 default:
-                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    Console.WriteLine("You have entered the wrong key. You will be punished. Your weapon is your fists. Good luck.\n\n");
                                     break;
                             }
                         } while (!weaponChoice6 && !raceChoice);
@@ -558,9 +560,10 @@ namespace Dungeon
                                     weaponChoice = true;
                                     break;
                                 default:
-                                    Console.WriteLine("Wrong input selected. Try another key.");
+                                    Console.WriteLine("You have entered the wrong key. You will be punished. Your weapon is your fists. Good luck.\n\n");
                                     break;
                             }
+                            
                         } while (!weaponChoice7 && !raceChoice);
                         break;
                     default:
