@@ -11,8 +11,8 @@ namespace Dungeon
     {
         static void Main(string[] args)
         {
-            Console.Title = "Under the Dark";
-            Console.WriteLine("It all starts here...\n");
+            Console.Title = "Paragons Call";
+            Console.WriteLine("How long can you make it before you perish...\n");
             Console.Write("Enter your player name: ");
             string playerName = Console.ReadLine();
             int score = 0;
@@ -564,6 +564,7 @@ namespace Dungeon
                         } while (!weaponChoice7 && !raceChoice);
                         break;
                     default:
+                        Console.WriteLine("Wrong input selected. Try another key.");
                         break;
                 }
             } while (!raceChoice);
@@ -638,7 +639,7 @@ namespace Dungeon
                         case ConsoleKey.P:
                             Console.WriteLine("Player Information");
                             Console.WriteLine(player);
-                            Console.WriteLine($"Monsters Defeated: {score}");
+                            Console.WriteLine($"Monsters Defeated: {score}\n\n");
                             reload = true;
                             break;
                         case ConsoleKey.M:
@@ -708,7 +709,7 @@ namespace Dungeon
                             Console.WriteLine($"Gold: {gold}");
                             Console.WriteLine($"Silver: {silver}");
                             Console.WriteLine($"Copper: {copper}");
-                            Console.WriteLine($"Health Potions: {hPotion}");
+                            Console.WriteLine($"Health Potions: {hPotion}\n\n");
                             reload = true;
                             break;
                         case ConsoleKey.H:
